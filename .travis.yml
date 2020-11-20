@@ -9,14 +9,14 @@ script:
   - docker run paul/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t paul/multi-client ./client
-  - docker build -t paul/multi-nginx ./nginx
-  - docker build -t paul/multi-server ./server
-  - docker build -t paul/multi-worker ./worker
+  - docker build -t paulg92/multi-client ./client
+  - docker build -t paulg92/multi-nginx ./nginx
+  - docker build -t paulg92/multi-server ./server
+  - docker build -t paulg92/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push paul/multi-client
-  - docker push paul/multi-nginx
-  - docker push paul/multi-server
-  - docker push paul/multi-worker
+  - docker push paulg92/multi-client
+  - docker push paulg92/multi-nginx
+  - docker push paulg92/multi-server
+  - docker push paulg92/multi-worker
 
 
